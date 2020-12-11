@@ -1,11 +1,41 @@
 import React from 'react'
 
 export default function Weather() {
+
+
+    const key = 'API_KEY';
+
+
+
+
+    useEffect(() => {
+        fetch()
+      
+    }, [])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <div>
             <main>
                 <div className="header">
-
+                    <div><h1><span>Just </span>Weather</h1></div>
+                    <div>
+                        <input type="text"></input>
+                        <div>burger</div>
+                    </div>
                 </div>
                 <div className="container">
                     <div className="content">
@@ -16,7 +46,7 @@ export default function Weather() {
                         <div>
                             {/* we need to add icon here */}
                             <img></img>
-                            <img>2 image</img>
+                            <img></img>
                         </div>
                         <div id="humidity-div">
                             <img></img>
