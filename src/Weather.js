@@ -14,7 +14,7 @@ export default function Weather() {
                             <p id="weather-type"></p>
                         </div>
                         <div>
-                            weather-icon
+                            <img></img>
                         </div>
                         <div id="humidity-div">
                             <img></img>
