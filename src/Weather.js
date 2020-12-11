@@ -14,7 +14,9 @@ export default function Weather() {
                             <p id="weather-type"></p>
                         </div>
                         <div>
+                            {/* we need to add icon here */}
                             <img></img>
+                            <img>2 image</img>
                         </div>
                         <div id="humidity-div">
                             <img></img>
