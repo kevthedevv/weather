@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+/* Header */
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 20px 20px 100px 20px;
+}
+#just{
+    color: mediumturquoise;
+}
+.container{
+    max-width: 70%;
+    margin: auto;
+}
+input{
+    width: 300px;
+    height: 20px;
+    padding: 12px 12px;
+    border-radius: 30px;
+    border-style: none;
+}
+#search-div{
+    display: flex;
+    align-items: center;
+}
+#search-div img{
+    height: 60px;
+}
+.content{
+    display: grid;
+    grid-template-areas: "city ."
+                        "humidity temp"
+                        "chances windspeed";
+    align-items: center;
+    justify-content: center;
+    grid-gap: 2rem;
+}
+body{
+    max-height: 50px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-image: url("snowy.jpg");
+    background-repeat: no-repeat;
+    height: 200px; */
+    
+}
+.icons-description{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    
+    
+}
+.icons-main img{
+    height: 60px;
+}
+.icons-main{
+    display: flex;
+    align-items: center;
+    
+}
+.overlay{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2),rgba(0,0,0,0.75));
+}
+.main-content{
+    height: 100vh;
+    background-image: url("sunny.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#main-weather{
+    grid-area: city;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+#humidity-div{
+    grid-area: humidity;
+}
+#temp-div{
+    grid-area: temp;
+}
+#chance-div{
+    grid-area: chances;
+}
+#windspeed-div{
+    grid-area: windspeed;
+}
+
+
+.footer{
+    padding-top: 100px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color: #888;
+}
+#type-div img{
+    width: 120px;
+}
