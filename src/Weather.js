@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './Weather.css';
 
-
+//84af6f866c5e0390408b69396b1f15f8
 function Weather() {
 
     
@@ -12,18 +12,12 @@ function Weather() {
     const [humidity, setHumidity] = useState("");
     const [wind, setWind] = useState("");
     const [city, setCity] = useState("");
-    let searchCity = "Manila"
-    const [searchContainer, setSearchContainer] = useState("")
-  
-
-   
-   
-
-
-    useEffect(() => {
-         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=metric&appid=84af6f866c5e0390408b69396b1f15f8`)
+    const [searchCity, setSearchCity] = useState("cebu")
+    const fetching = async () =>{
+        await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=metric&appid=84af6f866c5e0390408b69396b1f15f8`)
         .then((res) => res.json())
         .then((data) => {
+            console.log("succes", data)
             setWeatherType(data.weather[0].main);
             setWeatherDescription(data.weather[0].description)
             setIcon(data.weather[0].icon)
@@ -32,16 +26,24 @@ function Weather() {
             setWind(data.wind.speed);
             setCity(data.name);
             
-            
         })
+        .catch((err)=>{
+            console.log(err)
+        })}
+    useEffect(() => {
+        fetching();
     }, [searchCity])
-     const onChangeHandler = e =>{
-         e.preventDefault();
-         setSearchContainer(e.target.value);
-     }
     
-
-    console.log(searchContainer);
+    //  const onChangeHandler = e =>{
+    //     if( e.charCode === 13 ) {
+    //       setSearchCity(e.target.value);
+    //   }
+    const onChangeHandler = e => {
+        if( e.charCode === 13 ) {
+           setSearchCity(e.target.value)
+        }
+        }
+     
     return (
         <div>
             <main className="main-content" >
@@ -50,10 +52,7 @@ function Weather() {
                         <div><h1><span id="just">Just </span>Weather</h1></div>
                         <div id="search-div">
                             <form>
-                        
-                                <input type="text" placeholder="Search a city" onChange={onChangeHandler}/>
-                                <button onClick={()=>(searchCity=searchContainer)}>Submit</button>
-                                
+                                <input type="text" placeholder="Search a city" onKeyUp={onChangeHandler}/>
                             </form>
                             <div>
                                 <img src="/weather-icons/menu-icon.png" alt="burger"/>
@@ -106,7 +105,7 @@ function Weather() {
                         </div>
                         <div className="footer">
                             <div>
-                                Copyright: Vin Espoasdo 2020
+                                Copyright: Vin Esposado 2020
                             </div>
                         </div>
 
